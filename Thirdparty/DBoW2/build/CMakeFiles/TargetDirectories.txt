@@ -1,0 +1,1 @@
+/home/steve/catkin_ws/src/M_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir
