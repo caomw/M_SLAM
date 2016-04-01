@@ -1,0 +1,10 @@
+
+
+<launch>
+
+  <node pkg="M_SLAM" type="Img2Pc" name="scanRegistration" output="screen"/>
+  <node pkg="M_SLAM" type="M_SLAM" name="M_SLAM" output="screen"/>
+
+
+
+</launch>

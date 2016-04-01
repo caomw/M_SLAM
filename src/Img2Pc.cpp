@@ -27,7 +27,7 @@ void t_Callback(const sensor_msgs::Image::ConstPtr& img_msg)
 
     double rows = cv_img->image.rows;
     double cols = cv_img->image.cols;
-    tmp_PointCloud.resize(rows * cols);
+    //tmp_PointCloud.resize(rows * cols);
     cv::Mat img(cv_img->image);
 
     for(int i(0);i<rows;++i)
@@ -36,12 +36,14 @@ void t_Callback(const sensor_msgs::Image::ConstPtr& img_msg)
         {
             double px,py,pz;
 
-            pz =  img.at<float>(i,j);
+            pz =  img.at<float>(i,j)/factor;
 
             px = (j - cx) * pz /fx;
             py = (i - cy) * pz /fy;
 
-            tmp_PointCloud.at(i * cols + j) = pcl::PointXYZ(px, py, pz);
+            //tmp_PointCloud.at(i * cols + j) = pcl::PointXYZ(px, py, pz);
+            if(-10<px && px<10.0 && -10<py && py<10.0 && -10<pz && pz<10.0)
+            tmp_PointCloud.push_back(pcl::PointXYZ(px,py,pz));
         }
     }
 

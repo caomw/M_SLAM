@@ -59,7 +59,8 @@ link_directories(
 
 
 add_executable(Img2Pc src/Img2Pc.cpp)
-
+add_executable(M_SLAM src/M_SLAM.cpp)
 
 
 target_link_libraries(Img2Pc ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} )
+target_link_libraries(M_SLAM ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBRARIES})
